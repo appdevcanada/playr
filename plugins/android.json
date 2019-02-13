@@ -1,0 +1,22 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "ca.edumedia.mora0199.playr"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "ca.edumedia.mora0199.playr"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "ca.edumedia.mora0199.playr"
+    }
+  }
+}

@@ -6,8 +6,8 @@
 
 let app = {
     track: {
-        src: 'file:///android_asset/www/media/fight-club.mp3',
-        title: 'Fight Club Rules',
+        src: 'file:///android_asset/www/media/Believer.mp3',
+        title: 'Believer',
         volume: 0.5
     },
     media:null,
@@ -47,6 +47,7 @@ let app = {
     addListeners: function(){
         document.querySelector('#play-btn').addEventListener('click', app.play);
         document.querySelector('#pause-btn').addEventListener('click', app.pause);
+        document.querySelector('#stop-btn').addEventListener('click', app.stop);
         document.querySelector('#up-btn').addEventListener('click', app.volumeUp);
         document.querySelector('#down-btn').addEventListener('click', app.volumeDown);
         document.querySelector('#ff-btn').addEventListener('click', app.ff);
@@ -66,6 +67,9 @@ let app = {
     },
     pause: function(){
         app.media.pause();
+    },
+    stop: function(){
+        app.media.stop();
     },
     volumeUp: function(){
         vol = parseFloat(app.track.volume);

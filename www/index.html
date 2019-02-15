@@ -11,12 +11,12 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="file:///android_asset/www/css/index.css">
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/www/css/main.css">
         <title>Playr</title>
     </head>
     <body>
-        <h1>PLAYR</h1>
         <div class="player" id="playr">
+            <h1>PLAYR</h1>
             <input type="button" id="play-btn"></input>
             <input type="button" id="pause-btn"></input>
             <input type="button" id="stop-btn"></input>
@@ -24,6 +24,43 @@
             <input type="button" id="ff-btn"></input>
             <input type="button" id="up-btn"></input>
             <input type="button" id="down-btn"></input>
+        </div>
+        <div class="pages" id="home">
+            <ul class="music-list">
+                <li class="music-item" id="1">
+                    <img class="music-img" src="file:///android_asset/www/img/img1.png" alt="Believer"/>
+                    <h3 class="music-artist">Imagine Dragons</h3>
+                    <h4 class="music-title">Believer</h4>
+                    <p>...</p>
+                </li>
+                <li class="music-item" id="2">
+                    <img class="music-img" src="file:///android_asset/www/img/img2.png" alt="Hallelujah"/>
+                    <h3 class="music-artist">Pentatonix</h3>
+                    <h4 class="music-title">Hallelujah</h4>
+                    <p>...</p>
+                </li>
+                <li class="music-item" id="3">
+                    <img class="music-img" src="file:///android_asset/www/img/img3.png" alt="I Can Only Imagine"/>
+                    <h3 class="music-artist">Mercy Me</h3>
+                    <h4 class="music-title">I Can Only Imagine</h4>
+                    <p>...</p>
+                </li>
+                <li class="music-item" id="4">
+                    <img class="music-img" src="file:///android_asset/www/img/img4.png" alt="Shape of You"/>
+                    <h3 class="music-artist">Ed Sheeran</h3>
+                    <h4 class="music-title">Shape of You</h4>
+                    <p>...</p>
+                </li>
+                <li class="music-item" id="5">
+                    <img class="music-img" src="file:///android_asset/www/img/img5.png" alt="Whistle"/>
+                    <h3 class="music-artist">50 by 1</h3>
+                    <h4 class="music-title">Whistle</h4>
+                    <p>...</p>
+                </li>
+            </ul>
+        </div>
+        <div class="pages hide" id="music-on">
+            <p>HIDDEN</p>
         </div>
         <script type="text/javascript" src="js/main.js"></script>
         <script type="text/javascript" src="cordova.js"></script>

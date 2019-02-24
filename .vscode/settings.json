@@ -1,0 +1,8 @@
+{
+    "editor.fontLigatures": true,
+    "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
+    "editor.minimap.enabled": false,
+    "files.trimTrailingWhitespace": true
+}

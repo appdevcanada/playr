@@ -23,7 +23,7 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    background:url(file:///android_asset/www/img/headphone.svg) no-repeat center top; /* 170px x 200px */
     position:absolute;             /* position in the center of the screen */
 /*     left:50%;
     top:50%;
@@ -46,28 +46,26 @@ body {
 }
 
 h1 {
-    font-size: 24px;
-    font-weight: normal;
-    margin: 0px;
-    overflow: visible;
-    padding: 5px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 8px;
     text-align: center;
 }
 
 .player {
     position: fixed;
     width: 100%;
-    height: 60px;
+    height: 80px;
     z-index: 50;
     top: 0;
     left: 0;
     color: hsl(0, 0%, 0%);
-    background-color:rgba(81, 255, 55, 0.7);
+    background-color:rgba(82, 255, 55, 0.6);
 }
 .pages {
     display: block;
     z-index: 10;
-    margin-top: 60px;
+    margin-top: 80px;
     width: 100%;
     left: 0;
 }
@@ -76,16 +74,13 @@ h1 {
     display: none;
 }
 
-input {
+input, button {
     background-color: transparent; /* make the button transparent */
     background-repeat: no-repeat;  /* make the background image appear only once */
-    background-position: 3px 0px;  /* equivalent to 'top left' */
-    border: none;           /* assuming we don't want any borders */
-    cursor: pointer;        /* make the cursor like hovering over an <a> element */
-    height:24px;
-    width: 24px;           /* make this the size of your image */
-    padding-left: 24px;     /* make text start to the right of the image */
-    vertical-align: middle; /* align the text vertically centered */
+    border: none;
+    height: 36px;
+    width: 50px;
+    vertical-align: middle;
 }
 #play-btn {
     background-image: url(file:///android_asset/www/img/btn-play.svg);
@@ -108,6 +103,7 @@ input {
 #rew-btn {
     background-image: url(file:///android_asset/www/img/btn-rew.svg);
 }
+
 .music-list {
     list-style-type: none;
     margin: 0;
@@ -154,11 +150,76 @@ input {
     text-align: left;
 }
 
-.music-item p {
+button.music-details,
+input.music-details {
     grid-area: m;
-    color: rgb(255, 255, 255);
-    padding: 0.5rem;
+    padding: 0.4rem;
+    margin-top: 10px;
     margin-right: 5px;
-    text-align: right;
-    align-self: flex-end;
+    align-self: center;
+    justify-self: center;
+    background-position: center center;
+    background-image: url(file:///android_asset/www/img/more.png);
+}
+
+.detail {
+    margin: 2px;
+    padding: 5px;
+    display: grid;
+    grid-template-areas:
+        "bck"
+        "img"
+        "art"
+        "tit"
+        "dur";
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 380px repeat(3, 40px);
+    background-color:rgb(40, 40, 40);
+    align-content: start;
+    justify-self: center;
+    justify-items: center;
+    width: 100%;
+    height: 87vh;
+}
+
+#back-btn {
+    background-image: url(file:///android_asset/www/img/btn-back.png);
+    grid-area: bck;
+    justify-self: start;
+    justify-items: start;
+    height:40px;
+    width: 40px;
+}
+
+#m-img {
+    grid-area: img;
+    padding: 0.5rem;
+    height: 380px;
+}
+
+#m-artist {
+    grid-area: art;
+    color: rgb(210, 210, 210);
+    padding: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#m-title {
+    grid-area: tit;
+    color: rgb(152, 151, 151);
+    padding: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+#m-duration {
+    grid-area: dur;
+    color: rgb(152, 151, 151);
+    padding: 0.5rem;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.2rem;
 }

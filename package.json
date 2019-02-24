@@ -2,12 +2,12 @@
     "name": "ca.edumedia.mora0199.playr",
     "displayName": "mora0199",
     "version": "1.0.0",
-    "description": "A sample Apache Cordova application that responds to the deviceready event.",
+    "description": "PLAYR App - just a simple app that loads 5 musics and play them sequentially or by being tapped. If you tap the ... shows you details of the music.",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "author": "Apache Cordova Team",
+    "author": "Luis Souza",
     "license": "Apache-2.0",
     "dependencies": {
         "cordova-android": "^7.1.4",

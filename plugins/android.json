@@ -7,10 +7,10 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-plugin-whitelist": {
+    "cordova-plugin-media": {
       "PACKAGE_NAME": "ca.edumedia.mora0199.playr"
     },
-    "cordova-plugin-media": {
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "ca.edumedia.mora0199.playr"
     }
   },

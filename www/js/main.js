@@ -1,6 +1,7 @@
 // Author: Luis Souza
 // PLAYR App - just a simple app that loads 5 musics
 // and play them sequentially or by being tapped.
+// If you tap the ... shows you details of the music.
 
 let app = {
     track: [{

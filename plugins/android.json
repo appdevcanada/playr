@@ -12,6 +12,12 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "ca.edumedia.mora0199.playr"
+    },
+    "cordova-plugin-console": {
+      "PACKAGE_NAME": "ca.edumedia.mora0199.playr"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "ca.edumedia.mora0199.playr"
     }
   },
   "dependent_plugins": {

@@ -116,16 +116,16 @@ let app = {
         document.querySelector('#back-btn').addEventListener('click', app.back);
     },
     play: function (e) {
-        if (!e.target.id) {
-            app.tracksel = e.target.parentElement.id - 1;
-        } else {
-            app.tracksel = e.target.id - 1;
-        };
         if (app.tracksel == -1) {
             let src = app.track[0].src;
             app.tracksel = 0;
             app.media = new Media(src, app.ftw, app.wtf, app.statusChange);
         } else {
+            if (!e.target.id) {
+                app.tracksel = e.target.parentElement.id - 1;
+            } else {
+                app.tracksel = e.target.id - 1;
+            };
             if (e.target.id > 0 || e.target.parentElement.id > 0) {
                 if (app.musicStatus == Media.MEDIA_RUNNING || app.musicStatus == Media.MEDIA_PAUSED) {
                     app.ended = false;

@@ -87,24 +87,35 @@ let app = {
     statusChange: function (status) {
         console.log('media status is now ' + app.status[status]);
         app.musicStatus = status;
-        if (status == Media.MEDIA_RUNNING) app.ended = true;
+        if (app.musicStatus == Media.MEDIA_RUNNING) {
+            app.ended = true;
+            document.querySelector('#play-pause-btn').style.backgroundImage = 'url(file:///android_asset/www/img/btn-pause.svg)';
+        } else {
+            document.querySelector('#play-pause-btn').style.backgroundImage = 'url(file:///android_asset/www/img/btn-play.svg)';
+        }
     },
     addListeners: function () {
-        document.querySelector('#play-btn').addEventListener('click', app.play);
-        document.querySelector('#pause-btn').addEventListener('click', app.pause);
+        document.querySelector('#play-pause-btn').addEventListener('click', app.play);
         document.querySelector('#stop-btn').addEventListener('click', app.stop);
         document.querySelector('#up-btn').addEventListener('click', app.volumeUp);
         document.querySelector('#down-btn').addEventListener('click', app.volumeDown);
         document.querySelector('#ff-btn').addEventListener('click', app.ff);
         document.querySelector('#rew-btn').addEventListener('click', app.rew);
         document.addEventListener('pause', () => {
+            app.ended = false;
             app.media.release();
+            console.log('system paused');
         });
         document.addEventListener('menubutton', () => {
+            app.ended = false;
+            app.media.pause();
             console.log('clicked the menu button');
         });
         document.addEventListener('resume', () => {
+            console.log('system resumed');
+            let src = app.track[app.tracksel].src;
             app.media = new Media(src, app.ftw, app.wtf, app.statusChange);
+            app.media.play();
         });
         let arrayItems = document.querySelectorAll('.music-item');
         arrayItems.forEach(function (item) {
@@ -117,27 +128,37 @@ let app = {
         document.querySelector('#back-btn').addEventListener('click', app.back);
     },
     play: function (e) {
-        if (app.tracksel == -1) {
-            let src = app.track[0].src;
-            app.tracksel = 0;
-            app.media = new Media(src, app.ftw, app.wtf, app.statusChange);
+        console.log(app.tracksel, e.target.id, e.target.parentElement.id);
+        if (((isNaN(e.target.id) && isNaN(e.target.parentElement.id)) || ((app.tracksel == e.target.id - 1) || (app.tracksel == e.target.parentElement.id - 1))) && (app.musicStatus == Media.MEDIA_RUNNING)) {
+            app.media.pause();
         } else {
-            if (!e.target.id) {
-                app.tracksel = e.target.parentElement.id - 1;
-            } else {
-                app.tracksel = e.target.id - 1;
-            };
-            if (e.target.id > 0 || e.target.parentElement.id > 0) {
-                if (app.musicStatus == Media.MEDIA_RUNNING || app.musicStatus == Media.MEDIA_PAUSED) {
-                    app.ended = false;
-                    app.media.stop();
-                    app.media.release();
-                };
-                let src = app.track[app.tracksel].src;
+            // if ((app.tracksel == e.target.id - 1) || (app.tracksel == e.target.parentElement.id - 1)) {
+            if (app.tracksel == -1 && isNaN(e.target.id) && isNaN(e.target.parentElement.id)) {
+                console.log("entrei");
+                let src = app.track[0].src;
+                app.tracksel = 0;
                 app.media = new Media(src, app.ftw, app.wtf, app.statusChange);
+            } else {
+                if (!e.target.id) {
+                    app.tracksel = e.target.parentElement.id - 1;
+                } else {
+                    if (e.target.id > 0) {
+                        app.tracksel = e.target.id - 1;
+                    }
+                };
+                if (e.target.id > 0 || e.target.parentElement.id > 0) {
+                    if (app.musicStatus == Media.MEDIA_RUNNING || app.musicStatus == Media.MEDIA_PAUSED) {
+                        app.ended = false;
+                        app.media.stop();
+                        app.media.release();
+                    };
+                    let src = app.track[app.tracksel].src;
+                    app.media = new Media(src, app.ftw, app.wtf, app.statusChange);
+                };
             };
+            app.media.play();
+            // };
         };
-        app.media.play();
     },
     pause: function () {
         app.media.pause();

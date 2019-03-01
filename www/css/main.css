@@ -69,11 +69,8 @@ input, button {
     width: 50px;
     vertical-align: middle;
 }
-#play-btn {
+#play-pause-btn {
     background-image: url(file:///android_asset/www/img/btn-play.svg);
-}
-#pause-btn {
-    background-image: url(file:///android_asset/www/img/btn-pause.svg);
 }
 #stop-btn {
     background-image: url(file:///android_asset/www/img/btn-stop.svg);
@@ -150,7 +147,6 @@ input.music-details {
 }
 
 .detail {
-    margin: 2px;
     padding: 5px;
     display: grid;
     grid-template-areas:
@@ -161,12 +157,11 @@ input.music-details {
         "dur";
     grid-template-columns: 1fr;
     grid-template-rows: 40px 380px repeat(3, 40px);
-    background-color:rgb(40, 40, 40);
     align-content: start;
     justify-self: center;
     justify-items: center;
     width: 100%;
-    height: 87vh;
+    height: auto;
 }
 
 #back-btn {
@@ -209,14 +204,12 @@ input.music-details {
     font-weight: 600;
     text-align: center;
     font-size: 1.2rem;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width:684px) {
     input, button {
         width: 60px;
-    }
-    .detail {
-        height: 145vh;
     }
 }
 
@@ -224,17 +217,11 @@ input.music-details {
     input, button {
         width: 50px;
     }
-    .detail {
-        height: 170vh;
-    }
 }
 
 @media screen and (max-width:360px) {
     input, button {
         width: 40px;
-    }
-    .detail {
-        height: 87vh;
     }
 }
 
